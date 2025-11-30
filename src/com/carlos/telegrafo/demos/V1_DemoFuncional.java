@@ -1,15 +1,19 @@
-package com.carlos.telegrafo.main;
+package com.carlos.telegrafo.demos;
 
 import com.carlos.telegrafo.componentes.abstractos.*;
-import com.carlos.telegrafo.componentes.concretos.*;
+import com.carlos.telegrafo.componentes.concretos.canales.CableTerrestre;
+import com.carlos.telegrafo.componentes.concretos.codificadores.CodificadorMorse;
+import com.carlos.telegrafo.componentes.concretos.emisores.EmisorEstandar;
+import com.carlos.telegrafo.componentes.concretos.receptores.ReceptorConsola;
+import com.carlos.telegrafo.componentes.concretos.reles.ReleBateria;
 import com.carlos.telegrafo.interfaces.Codificador;
 import com.carlos.telegrafo.modelo.Signal;
 
-public class Prueba {
+public class V1_DemoFuncional {
     public static void main(String[] args) {
-        System.out.println("=== 📠 INICIANDO SIMULACIÓN DE TELÉGRAFO ===\n");
+        System.out.println("=== INICIANDO SIMULACIÓN DE TELÉGRAFO ===\n");
 
-        // 1. CONFIGURACIÓN
+        // 1. CONFIGURACIÓN Utiliza el codificador v1
         Codificador morse = new CodificadorMorse();
 
         // Construcción dinámica de componentes

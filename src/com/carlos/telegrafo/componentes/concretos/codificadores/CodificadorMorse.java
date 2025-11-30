@@ -1,4 +1,4 @@
-package com.carlos.telegrafo.componentes.concretos;
+package com.carlos.telegrafo.componentes.concretos.codificadores;
 
 import com.carlos.telegrafo.interfaces.Codificador;
 

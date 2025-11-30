@@ -1,4 +1,4 @@
-package com.carlos.telegrafo.componentes.concretos;
+package com.carlos.telegrafo.componentes.concretos.reles;
 
 import com.carlos.telegrafo.componentes.abstractos.Rele;
 import com.carlos.telegrafo.modelo.Signal;
@@ -12,7 +12,6 @@ public class ReleBateria extends Rele {
         this.nivelBateria = nivelInicial;
     }
 
-    @Override
     public void procesar(Signal signal) {
         // Solo trabajamos si hay señal Y tenemos batería
         if (signal.esLegible() && nivelBateria > 0) {
@@ -21,10 +20,10 @@ public class ReleBateria extends Rele {
             signal.restaurarPotencia();
             nivelBateria -= 10; // Coste energético por operación
 
-            System.out.println("       (Batería restante del relé: " + nivelBateria + "%)");
+            System.out.println("(Batería restante del relé: " + nivelBateria + "%)");
 
         } else if (nivelBateria <= 0) {
-            System.out.println("[Relé] ⚠️ BATERÍA AGOTADA. Ignorando señal.");
+            System.out.println("[Relé] BATERÍA AGOTADA. Ignorando señal.");
             // No hacemos nada, la señal pasa tal cual (degradada)
         }
     }

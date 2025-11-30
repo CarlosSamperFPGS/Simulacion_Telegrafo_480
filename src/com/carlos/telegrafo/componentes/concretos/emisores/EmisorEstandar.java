@@ -1,4 +1,4 @@
-package com.carlos.telegrafo.componentes.concretos;
+package com.carlos.telegrafo.componentes.concretos.emisores;
 
 import com.carlos.telegrafo.componentes.abstractos.Emisor;
 import com.carlos.telegrafo.interfaces.Codificador;
@@ -12,7 +12,7 @@ public class EmisorEstandar extends Emisor {
 
     public Signal enviar(String mensaje) {
         if (!encendido) {
-            System.out.println("❌ ERROR: El emisor está apagado.");
+            System.out.println("[ERROR]: El emisor está apagado.");
             return null;
         }
         System.out.println("[Emisor] Codificando mensaje: " + mensaje);
