@@ -18,8 +18,9 @@ public class ReceptorConsola extends Receptor {
             String raw = signal.getMensaje();
             String texto = codificador.decodificar(raw);
 
-            // Formato visual solicitado
+            // Formato visual
             System.out.println("SEÑAL RECIBIDA");
+            System.out.println("--- " + signal.getRutaCompleta() + " ---");
             System.out.println("CÓDIGO: " + raw);
             System.out.println("[Descodificando...]");
             System.out.println("MENSAJE : " + texto);
@@ -27,6 +28,10 @@ public class ReceptorConsola extends Receptor {
         } else {
             System.out.println("ERROR DE TRANSMISIÓN");
             System.out.println("Señal ilegible o degradada.");
+
+            if (signal != null) {
+                System.out.println("Última ubicación conocida: " + signal.getUltimoComponente());
+            }
         }
     }
 }

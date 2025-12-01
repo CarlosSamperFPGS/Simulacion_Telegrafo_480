@@ -15,6 +15,9 @@ public class ReleBateria extends Rele {
     }
 
     public void procesar(Signal signal) {
+
+        signal.registrarPaso("Relé: " + this.toString());
+
         // Solo trabajamos si hay señal Y tenemos batería
         if (signal.esLegible() && nivelBateria > 0) {
             System.out.println("[Relé] Señal detectada. ⚡ REGENERANDO Y AMPLIFICANDO.");

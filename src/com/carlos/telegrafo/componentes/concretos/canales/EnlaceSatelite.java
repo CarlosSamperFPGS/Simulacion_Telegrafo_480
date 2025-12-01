@@ -10,6 +10,7 @@ public class EnlaceSatelite extends Canal {
 
 
     public void transportar(Signal signal) {
+        signal.registrarPaso("Canal: " + this.toString());
 
         // Simula interferencia atmosférica aleatoria (ruido)
         int ruido = new Random().nextInt(25); // Pierde entre 0% y 25% de golpe

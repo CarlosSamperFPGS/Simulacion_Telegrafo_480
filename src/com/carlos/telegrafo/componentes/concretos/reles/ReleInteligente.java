@@ -9,6 +9,9 @@ public class ReleInteligente extends Rele {
         super(id);
     }
     public void procesar(Signal signal) {
+
+        signal.registrarPaso("Relé: " + this.toString());
+
         if (!signal.esLegible()) return;
 
         // Solo amplifica si baja del 70% para ahorrar componentes

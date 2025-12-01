@@ -9,6 +9,7 @@ public class CableTerrestre extends Canal {
         super(nombre, longitudKm); }
 
     public void transportar(Signal signal) {
+        signal.registrarPaso("Canal: " + this.toString());
 
         // Reduce progresivamente la fuerza
         // Ejemplo: Pierde 1.0 de potencia por cada Km recorrido.

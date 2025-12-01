@@ -11,6 +11,9 @@ public class ReleSolar extends Rele {
     }
 
     public void procesar(Signal signal) {
+
+        signal.registrarPaso("Relé: " + this.toString());
+
         if (esDeDia) {
             System.out.println("[Relé Solar] Paneles activos. Potencia restaurada.");
             signal.restaurarPotencia();

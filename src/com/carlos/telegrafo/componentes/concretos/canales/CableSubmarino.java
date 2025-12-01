@@ -10,6 +10,7 @@ public class CableSubmarino extends Canal {
     public void transportar(Signal signal) {
         // Pierde MUY POCO (0.2 por km) porque está aislado y refrigerado por el mar
         double perdida = longitudKm * 0.2;
+        signal.registrarPaso("Canal: " + this.toString());
 
         signal.reducirPotencia(perdida);
 

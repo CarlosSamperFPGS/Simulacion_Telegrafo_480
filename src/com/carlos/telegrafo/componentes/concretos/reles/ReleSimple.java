@@ -11,6 +11,8 @@ public class ReleSimple extends Rele {
 
     public void procesar(Signal signal) {
 
+        signal.registrarPaso("Relé: " + this.toString());
+
         // Si la señal es legible, la restaura siempre (energía infinita)
         if (signal.esLegible()) {
             System.out.println("[Relé Simple] Regenerando señal al 100%.");
