@@ -80,9 +80,9 @@ public class TelegraphApp {
 
                 Canal canal;
                 if (opCanal == 3) {
-                    canal = new EnlaceSatelite(nombreCanal, 0); // Satélite ignora distancia
+                    canal = new EnlaceSatelite(nombreCanal, 0);
                 } else if (opCanal == 4) {
-                    canal = new EnlaceSimulado(nombreCanal, 0); // Simulado ignora distancia
+                    canal = new EnlaceSimulado(nombreCanal, 0);
                 } else {
                     int km = ConsoleUtils.leerEntero("   > Distancia (Km) [10-10000]: ", 10, 10000);
                     canal = (opCanal == 2)
