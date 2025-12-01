@@ -18,7 +18,7 @@ public class Signal {
     // Simula la reducción de potencia por la distancia
     public void reducirPotencia(double cantidad) {
         this.potencia -= cantidad;
-        if (this.potencia < 0) this.potencia = 0;
+        if (this.potencia <= 0) this.potencia = 0;
     }
 
     // Usado por los Relés para restaurar la potencia
@@ -28,7 +28,7 @@ public class Signal {
 
     // Validar si la señal es legible
     public boolean esLegible() {
-        return potencia > 0;
+        return potencia > 20;
     }
 
     // Getters
