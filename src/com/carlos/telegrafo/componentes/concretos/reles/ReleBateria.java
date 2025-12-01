@@ -8,7 +8,9 @@ import com.carlos.telegrafo.modelo.Signal;
 public class ReleBateria extends Rele {
     private int nivelBateria;
 
-    public ReleBateria(int nivelInicial) {
+    public ReleBateria(String id, int nivelInicial) {
+        super(id);
+
         this.nivelBateria = nivelInicial;
     }
 
@@ -26,5 +28,9 @@ public class ReleBateria extends Rele {
             System.out.println("[Relé] BATERÍA AGOTADA. Ignorando señal.");
             // No hacemos nada, la señal pasa tal cual (degradada)
         }
+    }
+
+    public String getStatus() {
+        return String.format("Batería: %d%% | Estado: %s", nivelBateria, (nivelBateria > 10 ? "OPERATIVO" : "CRÍTICO"));
     }
 }

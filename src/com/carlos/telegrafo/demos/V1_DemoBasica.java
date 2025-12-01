@@ -18,9 +18,9 @@ public class V1_DemoBasica {
         Codificador morse = new CodificadorMorseV2(); // Usamos la V2 que es más robusta
 
         EmisorEstandar emisor = new EmisorEstandar(morse);
-        CableTerrestre tramoA = new CableTerrestre(40); // 40km
-        ReleBateria repetidor = new ReleBateria(100);   // Batería llena
-        CableTerrestre tramoB = new CableTerrestre(50); // 50km
+        CableTerrestre tramoA = new CableTerrestre("TramoA", 40); // 40km
+        ReleBateria repetidor = new ReleBateria("RepetidorH1", 100);   // Batería llena
+        CableTerrestre tramoB = new CableTerrestre("TramoB", 50); // 50km
         ReceptorConsola receptor = new ReceptorConsola(morse);
 
         // Ejecución

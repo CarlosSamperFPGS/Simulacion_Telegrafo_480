@@ -5,7 +5,8 @@ import com.carlos.telegrafo.modelo.Signal;
 
 public class EnlaceSimulado extends Canal {
 
-    public EnlaceSimulado() { super(0); }
+    public EnlaceSimulado(String nombre, int longitudKm) {
+        super("Enlace Simulado", 0); }
 
 
     public void transportar(Signal signal) {

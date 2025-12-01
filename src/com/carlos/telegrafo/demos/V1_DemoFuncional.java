@@ -18,9 +18,9 @@ public class V1_DemoFuncional {
 
         // Construcción dinámica de componentes
         Emisor emisor = new EmisorEstandar(morse);
-        Canal tramoA = new CableTerrestre(40); // 40km -> perderá 40%
-        Rele repetidor = new ReleBateria(100); // Batería llena
-        Canal tramoB = new CableTerrestre(50); // 50km -> perderá 50%
+        Canal tramoA = new CableTerrestre("TramoA", 40); // 40km -> perderá 40%
+        Rele repetidor = new ReleBateria("RepetidorH2", 100); // Batería llena
+        Canal tramoB = new CableTerrestre("TramoB", 50); // 50km -> perderá 50%
         Receptor receptor = new ReceptorConsola(morse);
 
         // 2. EJECUCIÓN (Flujo de la señal)

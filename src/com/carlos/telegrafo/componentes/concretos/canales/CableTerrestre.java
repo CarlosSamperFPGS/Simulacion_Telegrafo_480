@@ -5,9 +5,8 @@ import com.carlos.telegrafo.modelo.Signal;
 
 public class CableTerrestre extends Canal {
 
-    public CableTerrestre(int longitudKm) {
-        super(longitudKm);
-    }
+    public CableTerrestre(String nombre, int longitudKm) {
+        super(nombre, longitudKm); }
 
     public void transportar(Signal signal) {
 
@@ -16,7 +15,6 @@ public class CableTerrestre extends Canal {
 
         double perdida = longitudKm * 1.0;
         signal.reducirPotencia(perdida);
-
-        System.out.printf("[Cable Terrestre] Transporte por %d km. Potencia restante: %.1f%%\n", longitudKm, signal.getPotencia());
+        System.out.printf("[Cable] [%s] -%.1f%% de fuerza. (Actual: %.1f%%)\n", nombre, perdida, signal.getPotencia());
     }
 }

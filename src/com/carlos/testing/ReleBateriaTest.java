@@ -11,7 +11,7 @@ class ReleBateriaTest {
     @Test
     void testConsumoBateria() {
         // Relé con 20 de batería. Gasta 10 por uso.
-        ReleBateria rele = new ReleBateria(20);
+        ReleBateria rele = new ReleBateria("Rele", 20);
 
         Signal signal1 = new Signal("MSG1");
         signal1.reducirPotencia(50); // Está al 50%

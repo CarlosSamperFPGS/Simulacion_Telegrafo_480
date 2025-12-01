@@ -1,6 +1,7 @@
 package com.carlos.telegrafo.componentes.concretos.emisores;
 
 import com.carlos.telegrafo.componentes.abstractos.Emisor;
+import com.carlos.telegrafo.excepciones.TelegraphException;
 import com.carlos.telegrafo.interfaces.Codificador;
 import com.carlos.telegrafo.modelo.Signal;
 
@@ -11,9 +12,11 @@ public class EmisorEstandar extends Emisor {
     }
 
     public Signal enviar(String mensaje) {
+        if (mensaje == null || mensaje.trim().isEmpty()) {
+           throw new TelegraphException("El mensaje no puede estar vacío.");
+        }
         if (!encendido) {
-            System.out.println("[ERROR]: El emisor está apagado.");
-            return null;
+            throw new TelegraphException("El emisor debe estar encendido para enviar.");
         }
         System.out.println("[Emisor] Codificando mensaje: " + mensaje);
         String pulsos = codificador.codificar(mensaje);

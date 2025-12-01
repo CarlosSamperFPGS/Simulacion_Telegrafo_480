@@ -5,6 +5,9 @@ import com.carlos.telegrafo.modelo.Signal;
 
 public class ReleInteligente extends Rele {
 
+    public ReleInteligente() {
+        super("Relé Smart AI");
+    }
     public void procesar(Signal signal) {
         if (!signal.esLegible()) return;
 

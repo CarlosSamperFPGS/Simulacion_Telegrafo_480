@@ -16,10 +16,10 @@ public class V2_DemoFalloBateria {
         EmisorAutomatico emisor = new EmisorAutomatico(morse);
 
         // Relé con batería CRÍTICA (Solo 15%. Gasta 10% por uso. El segundo uso fallará)
-        ReleBateria releViejo = new ReleBateria(15);
+        ReleBateria releViejo = new ReleBateria("ReleViejo", 15);
 
         // Cable muy largo que MATA la señal si no se amplifica
-        CableTerrestre desierto = new CableTerrestre(80); // Pierde 80%
+        CableTerrestre desierto = new CableTerrestre("Desierto", 380); // Pierde 80%
         ReceptorConsola receptor = new ReceptorConsola(morse);
 
         emisor.encender(true);

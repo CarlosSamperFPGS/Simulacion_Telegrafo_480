@@ -4,7 +4,11 @@ import com.carlos.telegrafo.componentes.abstractos.Rele;
 import com.carlos.telegrafo.modelo.Signal;
 
 public class ReleSolar extends Rele {
-    private boolean esDeDia = true; // Podría cambiarse aleatoriamente
+    private boolean esDeDia = true;// Podría cambiarse aleatoriamente
+
+    public ReleSolar() {
+        super("Relé Solar");
+    }
 
     public void procesar(Signal signal) {
         if (esDeDia) {

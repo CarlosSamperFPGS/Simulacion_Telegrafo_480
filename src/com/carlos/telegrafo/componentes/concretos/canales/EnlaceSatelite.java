@@ -5,7 +5,8 @@ import com.carlos.telegrafo.modelo.Signal;
 import java.util.Random;
 
 public class EnlaceSatelite extends Canal {
-    public EnlaceSatelite() { super(0);  } // La distancia física es irrelevante en la órbita
+    public EnlaceSatelite(String nombre, int longitudKm) {
+        super(nombre, 0); } // La distancia física es irrelevante en la órbita
 
 
     public void transportar(Signal signal) {
