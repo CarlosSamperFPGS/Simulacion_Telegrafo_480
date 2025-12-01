@@ -6,8 +6,8 @@ import com.carlos.telegrafo.modelo.Signal;
 public class ReleSolar extends Rele {
     private boolean esDeDia = true;// Podría cambiarse aleatoriamente
 
-    public ReleSolar() {
-        super("Relé Solar");
+    public ReleSolar(String id) {
+        super(id);
     }
 
     public void procesar(Signal signal) {

@@ -5,8 +5,8 @@ import com.carlos.telegrafo.modelo.Signal;
 
 public class ReleSimple extends Rele {
 
-    public ReleSimple() {
-        super("Relé Simple Estándar"); // Solución A
+    public ReleSimple(String id) {
+        super(id); // Solución A
     }
 
     public void procesar(Signal signal) {

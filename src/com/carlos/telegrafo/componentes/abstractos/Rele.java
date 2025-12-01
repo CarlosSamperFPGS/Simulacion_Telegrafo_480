@@ -14,4 +14,8 @@ public abstract class Rele {
     // Métodos para procesar la señal (Amplificar o ignorar)
 
     public abstract void procesar(Signal signal);
+
+    public String toString() {
+        return id;
+    }
 }

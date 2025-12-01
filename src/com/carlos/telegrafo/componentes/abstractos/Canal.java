@@ -13,4 +13,8 @@ public abstract class Canal {
     }
 
     public abstract void transportar(Signal signal);
+
+    public String toString() {
+        return nombre;
+    }
 }
