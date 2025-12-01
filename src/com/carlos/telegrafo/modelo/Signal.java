@@ -11,6 +11,7 @@ public class Signal {
     private double potencia;  // Fuerza de la señal de 0 a 100
     // Trazabilidad
     private List<String> historial;
+    private static final double umbralLegible = 20.0;
 
     // Constructor
     public Signal(String mensaje) {
@@ -54,7 +55,7 @@ public class Signal {
 
     // Validar si la señal es legible
     public boolean esLegible() {
-        return potencia > 20;
+        return potencia > umbralLegible;
     }
 
     // Hace que los Canales y Relés "Fichen"
