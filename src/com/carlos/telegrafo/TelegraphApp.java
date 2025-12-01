@@ -2,8 +2,8 @@ package com.carlos.telegrafo;
 
 import com.carlos.telegrafo.componentes.abstractos.Canal;
 import com.carlos.telegrafo.componentes.abstractos.Emisor;
-import com.carlos.telegrafo.componentes.abstractos.Rele;
 import com.carlos.telegrafo.componentes.abstractos.Receptor;
+import com.carlos.telegrafo.componentes.abstractos.Rele;
 import com.carlos.telegrafo.componentes.concretos.canales.CableSubmarino;
 import com.carlos.telegrafo.componentes.concretos.canales.CableTerrestre;
 import com.carlos.telegrafo.componentes.concretos.canales.EnlaceSatelite;
@@ -27,7 +27,7 @@ import com.carlos.telegrafo.utils.ConsoleUtils;
 public class TelegraphApp {
 
     public static void main(String[] args) {
-        ConsoleUtils.imprimirCabecera("SISTEMA TELEGRÁFICO 480S - v2.2 FINAL");
+        ConsoleUtils.imprimirCabecera("SISTEMA TELEGRÁFICO 480S - v2.3 FINAL");
 
         boolean continuar = true;
 
@@ -104,16 +104,25 @@ public class TelegraphApp {
                 if (opRele != 1) {
                     String nombreRele = ConsoleUtils.leerTexto("   > Nombre del Relé (ID): ");
 
-                    // CORREGIDO: Pasamos nombreRele a todos los constructores
                     switch (opRele) {
-                        case 2: rele = new ReleSimple(nombreRele); break;
-                        case 3: rele = new ReleBateria(nombreRele, 100); break;
-                        case 4: rele = new ReleInteligente(nombreRele); break;
-                        case 5: rele = new ReleSolar(nombreRele); break;
+                        case 2:
+                            rele = new ReleSimple(nombreRele);
+                            break;
+                        case 3:
+                            // Preguntamos el nivel de batería
+                            int nivelBateria = ConsoleUtils.leerEntero("   > Nivel de Batería inicial [0-100]: ", 0, 100);
+                            rele = new ReleBateria(nombreRele, nivelBateria);
+                            break;
+                        case 4:
+                            rele = new ReleInteligente(nombreRele);
+                            break;
+                        case 5:
+                            rele = new ReleSolar(nombreRele);
+                            break;
                     }
                 }
 
-                // 5. Receptor (NUEVO BLOQUE)
+                // 5. Receptor
                 System.out.println("\n5. Receptor Final:");
                 System.out.println("   [1] Consola (Pantalla)");
                 System.out.println("   [2] Archivo (Guardar en disco)");
@@ -156,11 +165,11 @@ public class TelegraphApp {
                         canal.transportar(signal);
                     }
 
-                    // Recepción (Polimorfismo: funciona igual sea archivo o consola)
+                    // Recepción Final
                     System.out.println("   -> Entregando paquete al receptor seleccionado...");
                     receptor.recibir(signal);
 
-                    // Extra: Si es memoria, mostramos el contenido para verificar
+                    // Si es memoria, mostramos el contenido
                     if (receptor instanceof ReceptorMemoria) {
                         ((ReceptorMemoria) receptor).imprimirHistorial();
                     }
@@ -168,7 +177,6 @@ public class TelegraphApp {
 
             } catch (Exception e) {
                 System.out.println("\n ERROR DEL SISTEMA: " + e.getMessage());
-                // e.printStackTrace(); // Descomentar para debug
             }
 
             // --- FASE 3: BUCLE ---
